@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "no-spawnchunks",
+  "version": "${version}",
+  "accessWidener": "no-spawnchunks.accesswidener",
+
+  "name": "No-Spawnchunks",
+  "description": "This mod disables permanent spawn chunk loading!",
+  "authors": [
+    "logwet"
+  ],
+  "contact": {
+    "homepage": "https://github.com/logwet",
+    "sources": "https://github.com/logwet/no-spawnchunks"
+  },
+
+  "license": "GPL-3.0",
+  "icon": "assets/no-spawnchunks/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "me.logwet.no_spawnchunks.NoSpawnchunks"
+    ],
+    "client": [
+      "me.logwet.no_spawnchunks.NoSpawnchunksClient"
+    ],
+    "server": [
+      "me.logwet.no_spawnchunks.NoSpawnchunksServer"
+    ]
+  },
+  "mixins": [
+    "no-spawnchunks.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "minecraft": "1.16.x"
+  }
+}
