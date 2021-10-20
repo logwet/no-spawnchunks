@@ -4,7 +4,8 @@
   "package": "me.logwet.no_spawnchunks.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-
+    "common.MinecraftServerMixin",
+    "common.ServerWorldMixin"
   ],
   "client": [
     "client.DebugHudMixin"
