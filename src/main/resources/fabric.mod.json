@@ -23,10 +23,10 @@
       "me.logwet.no_spawnchunks.NoSpawnchunks"
     ],
     "client": [
-      "me.logwet.no_spawnchunks.NoSpawnchunksClient"
+
     ],
     "server": [
-      "me.logwet.no_spawnchunks.NoSpawnchunksServer"
+
     ]
   },
   "mixins": [
