@@ -13,13 +13,15 @@ import java.util.List;
 
 @Environment(EnvType.CLIENT)
 @Mixin(DebugHud.class)
-public class DebugHudMixin {
+public abstract class DebugHudMixin {
+
     /**
      * @author DuncanRuns
      * @reason Puts mod notice in F3 menu
      */
     @Inject(at = @At("RETURN"), method = "getLeftText", cancellable = true)
-    private void addDebugLineMixin(CallbackInfoReturnable<List<String>> info) {
+    private void injectGetLeftText(CallbackInfoReturnable<List<String>> info) {
         info.getReturnValue().add(NoSpawnchunks.MODID + " mod v" + NoSpawnchunks.VERSION + " by logwet");
     }
+
 }

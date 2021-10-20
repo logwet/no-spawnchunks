@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class MinecraftDedicatedServerMixin {
 
     @Inject(method = "setupServer", at = @At("HEAD"))
-    private void setupServer(CallbackInfoReturnable<Boolean> cir) {
+    private void injectSetupServer(CallbackInfoReturnable<Boolean> cir) {
         NoSpawnchunks.log(Level.INFO, "This line is printed by a MinecraftDedicatedServer mixin!");
     }
 
