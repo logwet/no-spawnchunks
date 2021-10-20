@@ -1,5 +1,8 @@
 # No-Spawnchunks
 
+Mod that prevents the overworld spawn chunks from being and staying loaded.
+This means you can pearl hang in the overworld near spawn!
+
 ## Setup
 
 Put the `jar` file in your mods folder with Fabric Loader installed.
