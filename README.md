@@ -9,6 +9,10 @@ Put the `jar` file in your mods folder with Fabric Loader installed.
 This mod does not require `Fabric API`.
 This mod is developed and tested for `1.16.1` but may work in other versions.
 
+## Compatibility
+
+This mod has been tested and is compatible with all of the standard performance mods (lithium, starlight, sodium etc.). It is also compatible with Chunk Mod (illegal) and Noverworld.
+
 ## License
 
 This project is available under the `GPL-3.0` license.
