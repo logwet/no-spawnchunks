@@ -11,7 +11,7 @@
     "client.DebugHudMixin"
   ],
   "server": [
-    "server.MinecraftDedicatedServerMixin"
+    
   ],
   "injectors": {
     "defaultRequire": 1
