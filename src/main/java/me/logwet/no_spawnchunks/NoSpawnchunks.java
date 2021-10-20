@@ -19,6 +19,6 @@ public class NoSpawnchunks implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		log(Level.INFO, "Main class initialized!");
+		log(Level.INFO, "Using "+ MODID + " v" + VERSION);
 	}
 }

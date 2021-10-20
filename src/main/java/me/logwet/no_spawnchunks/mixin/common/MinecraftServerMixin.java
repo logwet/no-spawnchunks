@@ -8,7 +8,10 @@ import net.minecraft.util.Unit;
 import net.minecraft.util.math.ChunkPos;
 import org.apache.logging.log4j.Level;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.*;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Constant;
+import org.spongepowered.asm.mixin.injection.ModifyConstant;
+import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(MinecraftServer.class)
 public abstract class MinecraftServerMixin {
@@ -16,7 +19,6 @@ public abstract class MinecraftServerMixin {
     @Redirect(method = "prepareStartRegion", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/world/ServerChunkManager;addTicket(Lnet/minecraft/server/world/ChunkTicketType;Lnet/minecraft/util/math/ChunkPos;ILjava/lang/Object;)V"))
     private void redirectAddTicket(ServerChunkManager serverChunkManager, ChunkTicketType<Unit> ticketType, ChunkPos pos, int radius, Object argument) {
         NoSpawnchunks.log(Level.INFO, "Prevented spawn chunks loading on initial world load.");
-        return;
     }
 
     @Redirect(method = "prepareStartRegion", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/world/ServerChunkManager;getTotalChunksLoadedCount()I"))
