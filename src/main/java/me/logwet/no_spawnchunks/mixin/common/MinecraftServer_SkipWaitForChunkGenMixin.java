@@ -28,7 +28,8 @@ public abstract class MinecraftServer_SkipWaitForChunkGenMixin {
      * @reason https://github.com/Mario0051/chunk-mod/issues/3
      */
     @Inject(method = "prepareStartRegion", at = @At("TAIL"))
-    private void onPrepareStartRegion(CallbackInfo info) {
+    private void injectWorldSave(CallbackInfo info) {
+        NoSpawnchunks.log(Level.INFO, "Forcing world save to ensure advancements and stats files are written.");
         ((MinecraftServer) (Object) this).save(false,false,false);
     }
 
