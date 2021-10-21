@@ -6,9 +6,9 @@ jobs:
     strategy:
       matrix:
         java: [
-            8, # Default build
+            8,
             11,
-            16
+            16 # Default build
         ]
         os: [ubuntu-20.04, windows-latest]
 
@@ -36,7 +36,7 @@ jobs:
         run: ./gradlew build
 
       - name: Capture build artifacts
-        if: ${{ runner.os == 'Linux' && matrix.java == '8' }} # Only upload artifacts built from Java 8 on one OS
+        if: ${{ runner.os == 'Linux' && matrix.java == '16' }} # Only upload artifacts built from Java 16 on one OS
         uses: actions/upload-artifact@v2
         with:
           name: Artifacts
