@@ -81,18 +81,6 @@ jobs:
           path: './gradle.properties'
           property: 'base_version'
 
-      - name: Create tag
-        uses: actions/github-script@v3
-        with:
-          github-token: ${{ github.token }}
-          script: |
-            github.git.createRef({
-              owner: github.actor,
-              repo: context.repo.repo,
-              ref: "refs/tags/v${{ steps.read_version.outputs.value }}",
-              sha: context.sha
-            })
-
       - name: Generate changelog
         id: changelog
         uses: metcalfc/changelog-generator@v1.0.0
