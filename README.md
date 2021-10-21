@@ -1,5 +1,7 @@
 # No-Spawnchunks
 
+[![Build and Release Artifacts](https://github.com/logwet/no-spawnchunks/actions/workflows/build.yml/badge.svg)](https://github.com/logwet/no-spawnchunks/actions/workflows/build.yml)
+
 Mod that prevents the overworld spawn chunks from being and staying loaded.
 This means you can pearl hang in the overworld near spawn!
 
