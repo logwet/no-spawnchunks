@@ -2,15 +2,32 @@ name: Build and Release Artifacts
 on: [pull_request, push]
 
 jobs:
+  matrix_prep:
+    runs-on: ubuntu-latest
+
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Get branch name
+        uses: nelonoel/branch-name@v1.0.1
+
+      - name: Set matrix
+        id: set-matrix
+        uses: JoshuaTheMiller/conditional-build-matrix
+        with:
+          filter: '[?run==`${{ env.BRANCH_NAME }}` || run==`always`]'
+
   build:
+    needs: matrix_prep
+
     strategy:
-      matrix:
-        java: [
-            8,
-            11,
-            16 # Default build
-        ]
-        os: [ubuntu-20.04, windows-latest]
+      matrix: ${{ fromJson(needs.matrix_prep.outputs.matrix) }}
 
     runs-on: ${{ matrix.os }}
 
@@ -46,7 +63,7 @@ jobs:
   release:
     needs: build
 
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     if: startsWith(github.ref, 'refs/heads/release')
 
