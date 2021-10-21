@@ -1,5 +1,5 @@
 name: Build and Release Artifacts
-on: [pull_request, push]
+on: push
 
 jobs:
   matrix_prep:
@@ -86,7 +86,6 @@ jobs:
         uses: metcalfc/changelog-generator@v1.0.0
         with:
           myToken: ${{ secrets.GITHUB_TOKEN }}
-          head-ref: v${{ steps.read_version.outputs.value }}
 
       - name: Download artifacts
         uses: actions/download-artifact@v2
