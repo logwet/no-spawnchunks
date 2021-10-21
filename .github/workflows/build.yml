@@ -19,9 +19,10 @@ jobs:
 
       - name: Set matrix
         id: set-matrix
-        uses: JoshuaTheMiller/conditional-build-matrix
+        uses: JoshuaTheMiller/conditional-build-matrix@0.0.1
         with:
           filter: '[?run==`${{ env.BRANCH_NAME }}` || run==`always`]'
+
 
   build:
     needs: matrix_prep
