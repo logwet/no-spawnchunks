@@ -8,17 +8,24 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class NoSpawnchunks implements ModInitializer {
-	public static final String MODID = "no-spawnchunks";
-	public static final String VERSION = FabricLoader.getInstance().getModContainer(MODID).get().getMetadata().getVersion().getFriendlyString();
-	public static final boolean IS_CLIENT = FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT;
-	public static final Logger LOGGER = LogManager.getLogger(MODID);
+    public static final String MODID = "no-spawnchunks";
+    public static final String VERSION =
+            FabricLoader.getInstance()
+                    .getModContainer(MODID)
+                    .get()
+                    .getMetadata()
+                    .getVersion()
+                    .getFriendlyString();
+    public static final boolean IS_CLIENT =
+            FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT;
+    public static final Logger LOGGER = LogManager.getLogger(MODID);
 
-	public static void log(Level level, String message) {
-		LOGGER.log(level, "[" + MODID + " v" + VERSION + "] " + message);
-	}
+    public static void log(Level level, String message) {
+        LOGGER.log(level, "[" + MODID + " v" + VERSION + "] " + message);
+    }
 
-	@Override
-	public void onInitialize() {
-		log(Level.INFO, "Using "+ MODID + " v" + VERSION);
-	}
+    @Override
+    public void onInitialize() {
+        log(Level.INFO, "Using " + MODID + " v" + VERSION);
+    }
 }

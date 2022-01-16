@@ -13,10 +13,19 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(MinecraftServer.class)
 public class MinecraftServer_RedirectAddStartTicketMixin {
-
-    @Redirect(method = "prepareStartRegion", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/world/ServerChunkManager;addTicket(Lnet/minecraft/server/world/ChunkTicketType;Lnet/minecraft/util/math/ChunkPos;ILjava/lang/Object;)V"))
-    private void redirectAddTicket(ServerChunkManager serverChunkManager, ChunkTicketType<Unit> ticketType, ChunkPos pos, int radius, Object argument) {
+    @Redirect(
+            method = "prepareStartRegion",
+            at =
+                    @At(
+                            value = "INVOKE",
+                            target =
+                                    "Lnet/minecraft/server/world/ServerChunkManager;addTicket(Lnet/minecraft/server/world/ChunkTicketType;Lnet/minecraft/util/math/ChunkPos;ILjava/lang/Object;)V"))
+    private void redirectAddTicket(
+            ServerChunkManager serverChunkManager,
+            ChunkTicketType<Unit> ticketType,
+            ChunkPos pos,
+            int radius,
+            Object argument) {
         NoSpawnchunks.log(Level.INFO, "Prevented spawn chunks loading on initial world load.");
     }
-    
 }
